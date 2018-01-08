@@ -1,0 +1,18 @@
+<div>
+    <h1>Customer Information</h1>
+    <div>
+        First Name: <input type="text" id="first-name-input" name="firstName" [(ngModel)]="firstName">
+    </div>
+    <div>
+        Last Name: <input type="text" id="last-name-input" name="lastName" [(ngModel)]="lastName">
+    </div> 
+    <div>
+        Value Entered: 
+        <label for="first-name-input">{{firstName|uppercase}}</label> 
+        <label for="last-name-input">{{lastName|uppercase}}</label>
+    </div> 
+    <br>
+    <div>
+        <button type="button" (click)="saveData()">Save</button>
+    </div>  
+</div>
