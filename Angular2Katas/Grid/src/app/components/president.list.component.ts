@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { PresidentService } from '../services/president.service';
 import { President } from '../president';
 
@@ -13,10 +13,9 @@ export class PresidentListComponent implements OnInit {
     public pageLength = 10;
     public message = 'hello';
 
-    public direction: number = 1;
-    public isDesc: boolean = false;
-    public column: string = 'startDate';
-
+    public direction = 1;
+    public isDesc = false;
+    public column = 'startDate';
 
     public presidents: President[] = [];
     errorMessage = '';
