@@ -1,0 +1,14 @@
+label { color:green;}
+input{color:blue;}
+body {
+    font-family: Segoe UI, Helvetica, Open Sans, Verdana, Arial, sans-serif;
+    font-size: 15px;
+    background-color: #236192;
+    color: white;
+}
+div{
+    background-color: white;
+    color: black;    
+    padding: 5px
+}
+
