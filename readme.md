@@ -8,13 +8,21 @@ All projects were generated with [Angular CLI](https://github.com/angular/angula
 
 The node_modules folder was not uploaded so in order to build they need to be installed using npm install
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.  
+
+To deploy to IIS using ng build --deploy-url /IIS_Application_Name
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-Other run options are npm start (same as npm run prod), ng serve, ng serve --e dev
+Other run options are npm start (same as npm run prod), ng serve, ng serve --e dev.
+
+If you are struggling to find a free port you can add this to automatically choose the port: --port=0 
+
+To run on node:
+•	npm install http-server -g 
+•	http-server ./dist
 
 ## Running unit tests
 
