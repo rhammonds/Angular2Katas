@@ -21,8 +21,8 @@ Other run options are npm start (same as npm run prod), ng serve, ng serve --e d
 If you are struggling to find a free port you can add this to automatically choose the port: --port=0 
 
 To run on node:
-*npm install http-server -g 
-*http-server ./dist
+* npm install http-server -g 
+* http-server ./dist
 
 ## Running unit tests
 
