@@ -10,12 +10,12 @@ import { President } from '../president';
 
 export class PresidentListComponent implements OnInit {
     public currentPage = 0;
-    public pageLength = 6;
+    public pageLength = 10;
     public message = 'hello';
 
-    public direction: number;
+    public direction: number = 1;
     public isDesc: boolean = false;
-    public column: string = 'startdate';
+    public column: string = 'startDate';
 
 
     public presidents: President[] = [];
