@@ -1,6 +1,6 @@
 # Angular 2 Katas
 
-Small Angular 2 projects with one or a few distinct features.
+Small, independent Angular 2 projects with one or a few distinct features.  By concentrating on small amounts of code it makes it a little easier to comprehend how it works.
 
 All projects were generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5.
 
