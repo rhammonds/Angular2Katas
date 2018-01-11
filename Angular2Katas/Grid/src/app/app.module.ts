@@ -7,9 +7,10 @@ import { HttpModule } from '@angular/http';
 import { PresidentService } from './services/president.service';
 import { OrderByPipe } from './components/orderby.pipe.component';
 import { LastNamePipe } from './components/lastname.pipe.component';
+import { FilterOrderByPipe } from './components/filter.orderby.pipe.component';
 
 @NgModule({
-  declarations: [ AppComponent, PresidentListComponent, OrderByPipe, LastNamePipe ],
+  declarations: [ AppComponent, PresidentListComponent, OrderByPipe, LastNamePipe, FilterOrderByPipe ],
   imports: [ BrowserModule, FormsModule, HttpModule ],
   providers: [PresidentService],
   bootstrap: [AppComponent]

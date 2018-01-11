@@ -9,35 +9,35 @@ import { President } from '../president';
 
 @Injectable()
 export class PresidentService {
-  private baseUrl = 'https://www.govtrack.us/api/v2';
-  private getAllUrl = `${this.baseUrl}/role?role_type=president&format=json` +
-     `&fields=person__firstname,person__middlename,person__lastname,startdate,enddate,party,person__birthday,person__link&sort=startdate`;
+    private baseUrl = 'https://www.govtrack.us/api/v2';
+    private getAllUrl = `${this.baseUrl}/role?role_type=president&format=json` +
+        `&fields=person__firstname,person__middlename,person__lastname,startdate,` +
+        `enddate,party,person__birthday,person__link&sort=startdate`;
 
-constructor(private http: Http) {}
+    constructor(private http: Http) {}
 
-  getAll(): Observable<President[]> {
-      console.log('Calling Service getAll');
-    let presidents$ = this.http
-       .get(this.getAllUrl)
-       .catch(handleError)
-       .map((res) => res.json().objects.map(toPresident));
-      return presidents$;
-  }
-}
+    getAll(): Observable<President[]> {
+        console.log('Calling Service getAll');
+        const presidents = this.http
+        .get(this.getAllUrl)
+        .catch(handleError)
+        .map((res) => res.json().objects.map(this.toPresident));
+        return presidents;
+    }
 
-function toPresident(r: any): President {
-    let id = extractId(r.person.link);
-    let president = <President> ( {
-        id: r.person.link,
-        firstName: r.person.firstname,
-        lastName: r.person.lastname,
-        startDate: r.startdate,
-        endDate: r.enddate,
-        party: r.party,
-        birthday: r.person.birthday,
-        link: 'https://www.govtrack.us/api/v2/person/' + id,
-  });
-  return president;
+    public toPresident(r: any): President {
+        const id = extractId(r.person.link);
+        const president = <President> ( {
+            id: id,
+            firstName: r.person.firstname + ' ' + r.person.middlename + ' ' + r.person.lastname,
+            startDate: r.startdate,
+            endDate: r.enddate,
+            party: r.party,
+            birthday: r.person.birthday,
+            link: 'https://www.govtrack.us/api/v2/person/' + id,
+      });
+      return president;
+    }
 }
 
 function extractId(url: any): number {
@@ -51,7 +51,7 @@ function extractId(url: any): number {
 function handleError (error: any) {
     // log error
     // could be something more sofisticated
-    let errorMsg = error.message || `Yikes! There was a problem with our hyperdrive device and we couldn't retrieve your data!`
+    const errorMsg = error.message || `There was a problem retrieving the data`
     console.error(errorMsg);
     // throw an application level error
     return Observable.throw(errorMsg);
