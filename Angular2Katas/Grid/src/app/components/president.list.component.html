@@ -1,22 +1,22 @@
 <h1>Presidents of the United States</h1>
 
 <style>
-        #customers {
+        #custom_grid {
             font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
             border-collapse: collapse;
             width: 100%;
         }
         
-        #customers td, #customers th {
+        #custom_grid td, #custom_grid th {
             border: 1px solid #ddd;
             padding: 8px;
         }
         
-        #customers tr:nth-child(even){background-color: #f2f2f2;}
+        #custom_grid tr:nth-child(even){background-color: #f2f2f2;}
         
-        #customers tr:hover {background-color: #ddd;}
+        #custom_grid tr:hover {background-color: #ddd;}
         
-        #customers th {
+        #custom_grid th {
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: left;
@@ -25,25 +25,27 @@
         }
 
         .pointer {cursor: pointer;}
+
+        
+   
+ 
+           
 </style>
 
 <div >
     <div class="form-group">
             <div class="col-md-6">
-                <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search" />
+                <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search"  />
             </div>
     </div>   
-    <table id="customers" class="table table-responsive table-hover">
+    <table id="custom_grid" class="table table-responsive table-hover">
         <thead>
-            <th class="pointer" (click)="sort('firstName')">First Name
+            <th class="pointer" (click)="sortList('firstName')">Name
                 <i class="fa" [ngClass]="{'fa-sort': column != 'firstName', 'fa-sort-asc': (column == 'firstName' && isDesc), 'fa-sort-desc': 
                     (column == 'firstName' && !isDesc) }" aria-hidden="true"> </i>
             </th>
-            <th class="pointer" (click)="sort('lastName')">Last Name
-                <i class="fa" [ngClass]="{'fa-sort': column != 'lastName', 'fa-sort-asc': (column == 'lastName' && isDesc), 'fa-sort-desc': 
-                    (column == 'lastName' && !isDesc) }" aria-hidden="true"> </i>
-            </th>  
-            <th class="pointer" (click)="sort('startDate')">Start Date
+              
+            <th class="pointer" (click)="sortList('startDate')">Date
                 <i class="fa" [ngClass]="{'fa-sort': column != 'startDate', 'fa-sort-asc': (column == 'startDate' && isDesc), 'fa-sort-desc': 
                     (column == 'startDate' && !isDesc) }" aria-hidden="true"> </i>
             </th>                        
@@ -51,28 +53,29 @@
             <th>Birthday</th>
         </thead>
         <tbody>
-            <tr *ngFor="let person of presidents | lastName: searchText | orderBy: {property: column, direction: direction, startPerson: startPerson, endPerson: endPerson}">
+            <tr *ngFor="let person of presidents  | filterOrderby: 
+                    {property: column, direction: direction, startPerson: startPerson, endPerson: endPerson, searchText: searchText}">
                     <td><a href="{{person.link}}">{{person.firstName}}</a></td>
-                    <td>{{person.lastName}}</td>
-                    <td>{{person.startDate}}</td>
+                    <td>{{person.startDate |date: "yyyy"}} - {{person.endDate |date: "yyyy"}}</td>
                     <td>{{person.party}}</td>
                     <td>{{person.birthday}}</td>
             </tr>
         </tbody>
     </table>
     
-    <div style="clear: both;">
+    <div  style="clear: both;">
         <div style="float: left;">
-            <label > Page {{currentPage+1}} of {{ceiling}} ({{presidents.length}} rows)</label>   
+            <label > Page {{currentPage+1}} of {{ceiling}} ({{presidentsLength}} rows)</label>   
+            <label  ></label>
             <button #prevButton type="button" (click)="prevPage()">Prev</button>
             <button type="button" (click)="nextPage()">Next</button>
         </div>
         <div style="float: right;">
             <label >Page Size:</label>
-            <input type="text" id="page-length" name="pageLength" [(ngModel)]="pageLength" size="1" >
+            <input type="text" id="page-length" name="pageLength" [(ngModel)]="pageLength" size="3" >
         </div>
     </div>
     <br>
-
+    <br>
 </div>
 
