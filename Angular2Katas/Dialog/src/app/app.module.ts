@@ -7,13 +7,15 @@ import { HomeComponent } from './components/home.component';
 import { CustomerComponent } from './components/customer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogComponent } from './components/dialog.component';
+import { FooterComponent } from './components/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CustomerComponent,
-    DialogComponent
+    DialogComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

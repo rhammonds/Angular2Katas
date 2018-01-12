@@ -1,20 +1,38 @@
 label { color:green;}
 input{color:blue;}
-body {
+body, .footer {
     font-family: Segoe UI, Helvetica, Open Sans, Verdana, Arial, sans-serif;
     font-size: 1em;
     background-color: #236192;
     color: white;
 }
 
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* background-color: red;  */
+    color: white;
+    text-align: center;
+ }
 
 a,
 a label {
     cursor: pointer;
 }
 a {text-decoration: none;}
-a:hover {text-decoration: underline;}
+a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
 
+a:link, a:visited { 
+    text-decoration: none;
+    color: white;    
+}
+
+ 
 @media (max-width: 800px) {
     html {
         font-size: .75em;
