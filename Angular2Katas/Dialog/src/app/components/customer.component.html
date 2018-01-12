@@ -1,17 +1,24 @@
+
 <h1>Customer</h1>
 
-<label>Name:</label> John Smith
+<label>Customer Name:</label> {{customerName}}
+<br>
+<label>Customer Address:</label> {{customerAddress}}
 <br>
 <br>
-<button (click)="showDialog = !showDialog" class="btn">Customer Details</button>
+<button (click)="showDialog = !showDialog" class="btn">Edit</button>
 <br>
 <br>
-
-<app-dialog [(visible)]="showDialog">
-    <h1>Customer Details</h1>
-    <label>Name:</label> John Smith
-    <br><label>Address:</label> 123 Apple Street, Atlanta, GA 12345
+ 
+<app-dialog [(visible)]="showDialog" >
+    <h1>Edit Customer</h1>
+    <label>Customer Name:</label> 
+    <input type="text" id="customer-name-input" name="customerName" [(ngModel)]="customerName">
+    <br>
+    <label>Address:</label> 
+    <input type="text" id="customer-address-input" name="customerAddress" [(ngModel)]="customerAddress" style='width:300px'>
     <br>
     <br>
+    <button (click)="showDialog = !showDialog" class="btn">Save</button>
     <button (click)="showDialog = !showDialog" class="btn">Close</button>
   </app-dialog>
