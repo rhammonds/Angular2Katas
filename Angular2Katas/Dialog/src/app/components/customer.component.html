@@ -1,0 +1,17 @@
+<h1>Customer</h1>
+
+<label>Name:</label> John Smith
+<br>
+<br>
+<button (click)="showDialog = !showDialog" class="btn">Customer Details</button>
+<br>
+<br>
+
+<app-dialog [(visible)]="showDialog">
+    <h1>Customer Details</h1>
+    <label>Name:</label> John Smith
+    <br><label>Address:</label> 123 Apple Street, Atlanta, GA 12345
+    <br>
+    <br>
+    <button (click)="showDialog = !showDialog" class="btn">Close</button>
+  </app-dialog>

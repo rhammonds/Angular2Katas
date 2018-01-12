@@ -1,0 +1,42 @@
+label { color:green;}
+input{color:blue;}
+body {
+    font-family: Segoe UI, Helvetica, Open Sans, Verdana, Arial, sans-serif;
+    font-size: 1em;
+    background-color: #236192;
+    color: white;
+}
+
+
+a,
+a label {
+    cursor: pointer;
+}
+a {text-decoration: none;}
+a:hover {text-decoration: underline;}
+
+@media (max-width: 800px) {
+    html {
+        font-size: .75em;
+    }
+    button{font-size: .85em}
+    input{font-size: .85em}
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: .5em;
+    }
+    button{font-size: .85em}
+    input{font-size: .85em}
+}
+
+
+div{
+    background-color: white;
+    color: black;    
+    padding: 5px
+}
+
+#foo { height: 500px; }
+
